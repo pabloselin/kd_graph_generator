@@ -1,0 +1,1 @@
+{"version":3,"file":"bundle.css","mappings":";;;AAAA;EACI;EACA;AACJ;AAAI;EAHJ;IAIQ;IACA;EAGN;AACF,C","sources":["webpack://kd_graph_generator/./src/style.scss"],"sourcesContent":["#kd_graph {\r\n    width: 100%;\r\n    height: 600px;\r\n    @media screen and (max-width: 768px) {\r\n        width: 90%;\r\n        height: 60vh;\r\n    }\r\n}"],"names":[],"sourceRoot":""}
