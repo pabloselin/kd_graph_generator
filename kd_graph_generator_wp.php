@@ -9,12 +9,14 @@ Author URI: http://pablosel.in
 License: GPL2
 */
 
-define('KD_PLUGIN_VERSION', '0.0.1');
+define('KD_PLUGIN_VERSION', '0.1.1');
 
 function kd_scripts()
 {
-    wp_enqueue_script('kd_graph', plugins_url('kd_graph_generator/public/bundle.js', __FILE__), array(), KD_PLUGIN_VERSION, true);
-    wp_enqueue_style('kd_graph', plugins_url('kd_graph_generator/public/bundle.css', __FILE__), array(), KD_PLUGIN_VERSION);
+    if(is_home() || is_front_page()) {
+        wp_enqueue_script('kd_graph', plugins_url('kd_graph_generator/public/bundle.js', __FILE__), array(), KD_PLUGIN_VERSION, true);
+        wp_enqueue_style('kd_graph', plugins_url('kd_graph_generator/public/bundle.css', __FILE__), array(), KD_PLUGIN_VERSION);
+    }
 }
 
 add_action('wp_enqueue_scripts', 'kd_scripts');

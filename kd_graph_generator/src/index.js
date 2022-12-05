@@ -1,22 +1,19 @@
-import * as echarts from "echarts/core";
+import { init, use } from "echarts/core";
 import { GraphChart } from "echarts/charts";
-import { TooltipComponent, DatasetComponent, TransformComponent, TitleComponent } from "echarts/components";
 import { CanvasRenderer } from "echarts/renderers";
 import { DATA_ENDPOINT } from "./config";
 import axios from "axios";
 
 console.log(DATA_ENDPOINT);
 
-echarts.use([GraphChart, TooltipComponent, DatasetComponent, TransformComponent, TitleComponent, CanvasRenderer]);
+use([GraphChart, CanvasRenderer]);
 
 const buildChart = async () => {
     const { data } = await axios.get(DATA_ENDPOINT);
     console.log(data);
 
-    const kdGraph = echarts.init(document.getElementById("kd-graph"));
+    const kdGraph = init(document.getElementById("kd-graph"));
     kdGraph.setOption({
-        title: {},
-        
         series: [
             {
                 name: 'Etiquetas pluriversidad',
